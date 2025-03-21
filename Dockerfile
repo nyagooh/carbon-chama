@@ -10,7 +10,7 @@ RUN go mod download
 COPY . .
 
 # Build the application
-RUN mkdir -p /app/bin && go build -o /app/bin/carbon-registry
+RUN mkdir -p /app/bin && go build main.go -o /app/bin/carbon-registry
 
 FROM alpine:latest
 WORKDIR /app
