@@ -12,7 +12,7 @@ class SignupForm extends HTMLElement {
 
     container.innerHTML = `
               <div class="left-section">
-                          <h2>Capturing Moments, Creating Memories</h2>
+                          <h2>Empowering small-scale farmers through community-based carbon credit</h2>
                       </div>
                       <div class="right-section">
                           <h2>Create an account</h2>
