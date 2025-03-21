@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Carbon Registry - Sustainable Carbon Management</title>
+    <title>Carbon Chama - Sustainable Carbon Management</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -13,20 +13,44 @@
                 extend: {
                     colors: {
                         primary: {
-                            light: '#81C784',
-                            DEFAULT: '#4CAF50',
-                            dark: '#2E7D32',
+                            light: '#86EFAC',  /* Green-400 */
+                            DEFAULT: '#22C55E', /* Green-500 */
+                            dark: '#16A34A',   /* Green-600 */
                         },
-                        secondary: '#66BB6A',
-                        accent: '#43A047',
+                        secondary: '#10B981', /* Emerald-500 */
+                        accent: '#3B82F6',    /* Blue-500 */
                     },
                     fontFamily: {
                         sans: ['Inter', 'sans-serif'],
                     },
+                    animation: {
+                        'float': 'float 3s ease-in-out infinite',
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        }
+                    }
                 }
             }
         }
     </script>
+    <style>
+        .bg-gradient-green {
+            background: linear-gradient(135deg, #22C55E 0%, #16A34A 100%);
+        }
+        .text-gradient {
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-image: linear-gradient(to right, #22C55E, #16A34A);
+        }
+        .blob {
+            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+        }
+    </style>
 </head>
 <body class="font-sans text-gray-800 bg-white">
     <!-- Hero Section -->
@@ -38,28 +62,34 @@
         <!-- Navigation -->
         <nav class="container mx-auto px-6 py-6 flex justify-between items-center relative z-10">
             <div class="flex items-center space-x-2">
-                <i class="fas fa-leaf text-primary-dark text-2xl"></i>
-                <span class="text-xl font-bold text-primary-dark">Carbon Registry</span>
+                <div class="w-10 h-10 bg-gradient-green rounded-full flex items-center justify-center">
+                    <i class="fas fa-leaf text-white text-xl"></i>
+                </div>
+                <span class="text-xl font-bold text-gradient">Carbon Chama</span>
             </div>
             
             <div class="hidden md:flex space-x-8">
-                <a href="#features" class="text-gray-600 hover:text-primary transition-colors">Features</a>
-                <a href="#how-it-works" class="text-gray-600 hover:text-primary transition-colors">How It Works</a>
-                <a href="#testimonials" class="text-gray-600 hover:text-primary transition-colors">Testimonials</a>
-                <a href="#pricing" class="text-gray-600 hover:text-primary transition-colors">Pricing</a>
+                <a href="#features" class="text-gray-600 hover:text-primary transition-colors font-medium">Features</a>
+                <a href="#how-it-works" class="text-gray-600 hover:text-primary transition-colors font-medium">How It Works</a>
+                <a href="#testimonials" class="text-gray-600 hover:text-primary transition-colors font-medium">Testimonials</a>
+                <a href="#pricing" class="text-gray-600 hover:text-primary transition-colors font-medium">Pricing</a>
             </div>
             
             <div class="flex space-x-4">
-                <a href="/login" class="px-4 py-2 border border-primary text-primary rounded-lg hover:bg-primary hover:text-white transition-colors">Log In</a>
-                <a href="/signup" class="px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary-dark transition-colors">Sign Up</a>
+                <a href="/login" class="px-4 py-2 border border-primary text-primary rounded-full hover:bg-primary hover:text-white transition-colors font-medium">Log In</a>
+                <a href="/signup" class="px-5 py-2.5 bg-gradient-green text-white rounded-full hover:shadow-lg transition-all duration-300 font-medium">Join Carbon Chama</a>
             </div>
         </nav>
         
         <!-- Hero Content -->
         <div class="container mx-auto px-6 py-16 md:py-24 grid md:grid-cols-2 gap-12 items-center">
             <div class="space-y-8">
-                <h1 class="text-4xl md:text-5xl font-bold leading-tight">
-                    Revolutionize Your <span class="text-primary relative">Carbon Footprint<span class="absolute bottom-0 left-0 w-full h-3 bg-primary/10 -z-10 rounded"></span></span> Management
+                <div class="inline-block px-3 py-1 bg-primary/10 text-primary rounded-full font-medium text-sm mb-2">
+                    🌱 Sustainable Carbon Management
+                </div>
+                
+                <h1 class="text-4xl md:text-5xl xl:text-6xl font-bold leading-tight">
+                    Join <span class="text-gradient">Carbon Chama</span> for a Greener Future
                 </h1>
                 
                 <p class="text-lg text-gray-600 md:pr-12">
@@ -67,45 +97,58 @@
                 </p>
                 
                 <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
-                    <a href="/signup" class="px-6 py-3 bg-primary text-white rounded-lg hover:bg-primary-dark transition-colors flex items-center justify-center">
-                        Get Started <i class="fas fa-arrow-right ml-2"></i>
+                    <a href="/signup" class="px-6 py-3 bg-gradient-green text-white rounded-full hover:shadow-lg transition-all duration-300 flex items-center justify-center group">
+                        Join Carbon Chama <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
                     </a>
-                    <a href="#demo" class="px-6 py-3 border border-primary text-primary rounded-lg hover:bg-primary hover:text-white transition-colors flex items-center justify-center">
+                    <a href="#demo" class="px-6 py-3 border border-primary text-primary rounded-full hover:bg-primary hover:text-white transition-colors flex items-center justify-center">
                         Watch Demo <i class="fas fa-play ml-2"></i>
                     </a>
                 </div>
                 
+                <div class="pt-8">
+                    <p class="text-sm text-gray-500 mb-4">Trusted by forward-thinking companies:</p>
+                    <div class="flex flex-wrap items-center gap-6">
+                        <div class="flex items-center text-gray-400 text-lg font-medium"><i class="fab fa-google mr-2 text-xl"></i> Google</div>
+                        <div class="flex items-center text-gray-400 text-lg font-medium"><i class="fab fa-microsoft mr-2 text-xl"></i> Microsoft</div>
+                        <div class="flex items-center text-gray-400 text-lg font-medium"><i class="fab fa-apple mr-2 text-xl"></i> Apple</div>
+                        <div class="flex items-center text-gray-400 text-lg font-medium"><i class="fab fa-amazon mr-2 text-xl"></i> Amazon</div>
+                    </div>
+                </div>
+                
                 <div class="grid grid-cols-3 gap-8 pt-6">
-                    <div>
-                        <div class="text-2xl font-bold text-primary-dark">10K+</div>
+                    <div class="bg-white p-4 rounded-xl shadow-md">
+                        <div class="text-2xl font-bold text-gradient">10K+</div>
                         <div class="text-sm text-gray-500">Active Users</div>
                     </div>
-                    <div>
-                        <div class="text-2xl font-bold text-primary-dark">500+</div>
+                    <div class="bg-white p-4 rounded-xl shadow-md">
+                        <div class="text-2xl font-bold text-gradient">500+</div>
                         <div class="text-sm text-gray-500">Projects</div>
                     </div>
-                    <div>
-                        <div class="text-2xl font-bold text-primary-dark">1M+</div>
+                    <div class="bg-white p-4 rounded-xl shadow-md">
+                        <div class="text-2xl font-bold text-gradient">1M+</div>
                         <div class="text-sm text-gray-500">Tons CO₂ Offset</div>
                     </div>
                 </div>
             </div>
             
             <div class="relative">
-                <img src="/static/images/hero-illustration.svg" alt="Carbon Registry Dashboard" class="w-full max-w-lg mx-auto rounded-xl shadow-2xl relative z-10">
+                <div class="absolute -z-10 w-72 h-72 bg-primary/10 rounded-full filter blur-3xl opacity-70 -top-10 -right-10"></div>
+                <div class="absolute -z-10 w-72 h-72 bg-accent/10 rounded-full filter blur-3xl opacity-70 bottom-10 -left-10"></div>
+                
+                <img src="/static/images/hero-illustration.svg" alt="Carbon Chama Dashboard" class="w-full max-w-lg mx-auto rounded-xl shadow-2xl relative z-10 animate-float">
                 
                 <!-- Floating Cards -->
-                <div class="absolute top-1/4 -left-8 bg-white p-4 rounded-lg shadow-lg flex items-center space-x-3 animate-bounce-slow z-20">
+                <div class="absolute top-1/4 -left-8 bg-white p-4 rounded-lg shadow-lg flex items-center space-x-3 animate-pulse-slow z-20">
                     <i class="fas fa-check-circle text-primary text-xl"></i>
                     <span class="text-sm font-medium">Verified Carbon Credits</span>
                 </div>
                 
-                <div class="absolute bottom-1/4 left-12 bg-white p-4 rounded-lg shadow-lg flex items-center space-x-3 animate-bounce-slow animation-delay-1000 z-20">
+                <div class="absolute bottom-1/4 left-12 bg-white p-4 rounded-lg shadow-lg flex items-center space-x-3 animate-pulse-slow z-20">
                     <i class="fas fa-chart-line text-primary text-xl"></i>
                     <span class="text-sm font-medium">Real-time Tracking</span>
                 </div>
                 
-                <div class="absolute top-1/3 -right-8 bg-white p-4 rounded-lg shadow-lg flex items-center space-x-3 animate-bounce-slow animation-delay-2000 z-20">
+                <div class="absolute top-1/3 -right-8 bg-white p-4 rounded-lg shadow-lg flex items-center space-x-3 animate-pulse-slow z-20">
                     <i class="fas fa-shield-alt text-primary text-xl"></i>
                     <span class="text-sm font-medium">Blockchain Secured</span>
                 </div>
@@ -113,94 +156,88 @@
         </div>
     </header>
     
-    <!-- Partners Section -->
-    <section class="py-16 bg-white">
-        <div class="container mx-auto px-6 text-center">
-            <p class="text-lg text-gray-600 mb-10">Trusted by leading organizations worldwide</p>
-            
-            <div class="flex flex-wrap justify-center items-center gap-12">
-                <div class="flex items-center text-gray-400 text-xl font-semibold"><i class="fab fa-google mr-2 text-2xl"></i> Google</div>
-                <div class="flex items-center text-gray-400 text-xl font-semibold"><i class="fab fa-microsoft mr-2 text-2xl"></i> Microsoft</div>
-                <div class="flex items-center text-gray-400 text-xl font-semibold"><i class="fab fa-apple mr-2 text-2xl"></i> Apple</div>
-                <div class="flex items-center text-gray-400 text-xl font-semibold"><i class="fab fa-amazon mr-2 text-2xl"></i> Amazon</div>
-                <div class="flex items-center text-gray-400 text-xl font-semibold"><i class="fab fa-spotify mr-2 text-2xl"></i> Spotify</div>
-            </div>
-        </div>
-    </section>
+
     <!-- Features Section -->
-    <section id="features" class="py-20 bg-gray-50">
-        <div class="container mx-auto px-6">
+    <section id="features" class="py-20 bg-gradient-to-br from-gray-50 to-green-50 relative overflow-hidden">
+        <!-- Decorative elements -->
+        <div class="absolute top-20 right-20 w-64 h-64 bg-primary/10 rounded-full filter blur-3xl opacity-70"></div>
+        <div class="absolute bottom-20 left-20 w-64 h-64 bg-accent/10 rounded-full filter blur-3xl opacity-70"></div>
+        
+        <div class="container mx-auto px-6 relative z-10">
             <div class="text-center max-w-3xl mx-auto mb-16">
+                <div class="inline-block px-3 py-1 bg-primary/10 text-primary rounded-full font-medium text-sm mb-4">
+                    Features
+                </div>
                 <h2 class="text-3xl md:text-4xl font-bold mb-4">
-                    Powerful Features for <span class="text-primary relative">Sustainable<span class="absolute bottom-0 left-0 w-full h-3 bg-primary/10 -z-10 rounded"></span></span> Business
+                    Powerful Tools for <span class="text-gradient">Sustainable</span> Business
                 </h2>
                 <p class="text-lg text-gray-600">
-                    Our comprehensive platform provides all the tools you need to manage your carbon footprint effectively.
+                    Carbon Chama provides all the tools you need to manage your carbon footprint effectively.
                 </p>
             </div>
             
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Feature 1 -->
-                <div class="bg-white p-8 rounded-xl shadow-md hover:shadow-xl transition-shadow">
-                    <div class="w-14 h-14 bg-gradient-to-br from-primary to-primary-dark rounded-full flex items-center justify-center mb-6">
+                <div class="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:translate-y-[-5px] group border border-gray-100">
+                    <div class="w-16 h-16 bg-gradient-green rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                         <i class="fas fa-chart-pie text-white text-xl"></i>
                     </div>
-                    <h3 class="text-xl font-semibold mb-3">Carbon Analytics</h3>
+                    <h3 class="text-xl font-semibold mb-3 group-hover:text-primary transition-colors">Carbon Analytics</h3>
                     <p class="text-gray-600">
                         Advanced analytics to track and visualize your carbon emissions across all business operations.
                     </p>
                 </div>
                 
                 <!-- Feature 2 -->
-                <div class="bg-white p-8 rounded-xl shadow-md hover:shadow-xl transition-shadow">
-                    <div class="w-14 h-14 bg-gradient-to-br from-blue-500 to-blue-700 rounded-full flex items-center justify-center mb-6">
+                <div class="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:translate-y-[-5px] group border border-gray-100">
+                    <div class="w-16 h-16 bg-gradient-to-br from-accent to-accent-dark rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                         <i class="fas fa-leaf text-white text-xl"></i>
                     </div>
-                    <h3 class="text-xl font-semibold mb-3">Offset Marketplace</h3>
+                    <h3 class="text-xl font-semibold mb-3 group-hover:text-accent transition-colors">Offset Marketplace</h3>
                     <p class="text-gray-600">
                         Access to verified carbon offset projects from around the world with transparent pricing.
                     </p>
                 </div>
                 
                 <!-- Feature 3 -->
-                <div class="bg-white p-8 rounded-xl shadow-md hover:shadow-xl transition-shadow">
-                    <div class="w-14 h-14 bg-gradient-to-br from-purple-500 to-purple-700 rounded-full flex items-center justify-center mb-6">
+                <div class="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:translate-y-[-5px] group border border-gray-100">
+                    <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-purple-700 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                         <i class="fas fa-cube text-white text-xl"></i>
                     </div>
-                    <h3 class="text-xl font-semibold mb-3">Blockchain Verification</h3>
+                    <h3 class="text-xl font-semibold mb-3 group-hover:text-purple-600 transition-colors">Blockchain Verification</h3>
                     <p class="text-gray-600">
                         Immutable records of all carbon credits and transactions secured by blockchain technology.
                     </p>
                 </div>
                 
                 <!-- Feature 4 -->
-                <div class="bg-white p-8 rounded-xl shadow-md hover:shadow-xl transition-shadow">
-                    <div class="w-14 h-14 bg-gradient-to-br from-orange-500 to-orange-700 rounded-full flex items-center justify-center mb-6">
+                <div class="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:translate-y-[-5px] group border border-gray-100">
+                    <div class="w-16 h-16 bg-gradient-to-br from-amber-500 to-amber-700 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                         <i class="fas fa-file-alt text-white text-xl"></i>
                     </div>
-                    <h3 class="text-xl font-semibold mb-3">Compliance Reporting</h3>
+                    <h3 class="text-xl font-semibold mb-3 group-hover:text-amber-600 transition-colors">Compliance Reporting</h3>
                     <p class="text-gray-600">
                         Automated reports for regulatory compliance and sustainability disclosures.
                     </p>
                 </div>
                 
                 <!-- Feature 5 -->
-                <div class="bg-white p-8 rounded-xl shadow-md hover:shadow-xl transition-shadow">
-                    <div class="w-14 h-14 bg-gradient-to-br from-teal-500 to-teal-700 rounded-full flex items-center justify-center mb-6">
+                <div class="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:translate-y-[-5px] group border border-gray-100">
+                    <div class="w-16 h-16 bg-gradient-to-br from-teal-500 to-teal-700 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                         <i class="fas fa-users text-white text-xl"></i>
                     </div>
-                    <h3 class="text-xl font-semibold mb-3">Team Collaboration</h3>
+                    <h3 class="text-xl font-semibold mb-3 group-hover:text-teal-600 transition-colors">Team Collaboration</h3>
                     <p class="text-gray-600">
                         Collaborative tools for your sustainability team to work together effectively.
                     </p>
                 </div>
                 
                 <!-- Feature 6 -->
-                <div class="bg-white p-8 rounded-xl shadow-md hover:shadow-xl transition-shadow">
-                    <div class="w-14 h-14 bg-gradient-to-br from-red-500 to-red-700 rounded-full flex items-center justify-center mb-6">
+                <div class="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:translate-y-[-5px] group border border-gray-100">
+                    <div class="w-16 h-16 bg-gradient-to-br from-rose-500 to-rose-700 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                         <i class="fas fa-bolt text-white text-xl"></i>
                     </div>
-                    <h3 class="text-xl font-semibold mb-3">Real-time Alerts</h3>
+                    <h3 class="text-xl font-semibold mb-3 group-hover:text-rose-600 transition-colors">Real-time Alerts</h3>
                     <p class="text-gray-600">
                         Get notified about important changes in your carbon footprint or market opportunities.
                     </p>
@@ -210,72 +247,198 @@
     </section>
     
     <!-- How It Works Section -->
-    <section id="how-it-works" class="py-20 bg-white">
-        <div class="container mx-auto px-6">
+    <section id="how-it-works" class="py-20 bg-white relative overflow-hidden">
+        <!-- Decorative elements -->
+        <div class="absolute top-20 left-20 w-64 h-64 bg-primary/5 rounded-full filter blur-3xl opacity-70"></div>
+        <div class="absolute bottom-20 right-20 w-64 h-64 bg-accent/5 rounded-full filter blur-3xl opacity-70"></div>
+        
+        <div class="container mx-auto px-6 relative z-10">
             <div class="text-center max-w-3xl mx-auto mb-16">
+                <div class="inline-block px-3 py-1 bg-primary/10 text-primary rounded-full font-medium text-sm mb-4">
+                    Community-Powered Carbon Management
+                </div>
                 <h2 class="text-3xl md:text-4xl font-bold mb-4">
-                    How Carbon Registry <span class="text-primary relative">Works<span class="absolute bottom-0 left-0 w-full h-3 bg-primary/10 -z-10 rounded"></span></span>
+                    The <span class="text-gradient">Carbon Chama</span> Advantage
                 </h2>
-                <p class="text-lg text-gray-600">
-                    Our simple yet powerful process helps you manage your carbon footprint efficiently.
+                <p class="text-lg text-gray-600 mb-6">
+                    Inspired by the traditional African "Chama" saving groups, Carbon Chama brings together small-scale farmers and carbon-conscious organizations in a transparent, blockchain-secured community.
                 </p>
+                <div class="flex flex-wrap justify-center gap-8 mt-8">
+                    <div class="flex items-center bg-white p-3 rounded-full shadow-md">
+                        <div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center mr-3">
+                            <i class="fas fa-users text-primary"></i>
+                        </div>
+                        <span class="font-medium">Community-Powered</span>
+                    </div>
+                    <div class="flex items-center bg-white p-3 rounded-full shadow-md">
+                        <div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center mr-3">
+                            <i class="fas fa-lock text-primary"></i>
+                        </div>
+                        <span class="font-medium">Blockchain Secured</span>
+                    </div>
+                    <div class="flex items-center bg-white p-3 rounded-full shadow-md">
+                        <div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center mr-3">
+                            <i class="fas fa-seedling text-primary"></i>
+                        </div>
+                        <span class="font-medium">Farmer Empowerment</span>
+                    </div>
+                </div>
             </div>
             
-            <div class="max-w-4xl mx-auto">
+            <div class="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
                 <!-- Step 1 -->
-                <div class="flex flex-col md:flex-row items-start mb-12 relative">
-                    <div class="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-primary to-primary-dark rounded-full flex items-center justify-center text-white font-bold text-lg z-10">1</div>
-                    
-                    <!-- Connecting Line -->
-                    <div class="absolute top-12 left-6 w-0.5 h-[calc(100%+3rem)] bg-primary-light hidden md:block"></div>
-                    
-                    <div class="md:ml-8 mt-4 md:mt-0">
-                        <h3 class="text-xl font-semibold mb-2">Measure Your Emissions</h3>
-                        <p class="text-gray-600">
-                            Connect your data sources or manually input your carbon emission activities.
-                        </p>
+                <div class="bg-white p-6 rounded-2xl shadow-lg border border-gray-100 relative overflow-hidden group hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+                    <div class="absolute -right-6 -top-6 w-24 h-24 bg-primary/10 rounded-full"></div>
+                    <div class="flex items-center mb-4">
+                        <div class="w-14 h-14 bg-gradient-green rounded-xl flex items-center justify-center text-white font-bold text-lg z-10 shadow-md mr-4 group-hover:scale-110 transition-transform duration-300">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold group-hover:text-primary transition-colors duration-300">Join the Chama</h3>
                     </div>
+                    <p class="text-gray-600 mb-4">
+                        Small-scale farmers join our Carbon Chama community, pooling their land resources to create impactful carbon sequestration projects.
+                    </p>
+                    <img src="https://images.unsplash.com/photo-1605000797499-95a51c5269ae?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fGZhcm1lcnN8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60" alt="Farmers joining the community" class="w-full h-48 object-cover rounded-xl mt-2">
                 </div>
                 
                 <!-- Step 2 -->
-                <div class="flex flex-col md:flex-row items-start mb-12 relative">
-                    <div class="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-primary to-primary-dark rounded-full flex items-center justify-center text-white font-bold text-lg z-10">2</div>
-                    
-                    <!-- Connecting Line -->
-                    <div class="absolute top-12 left-6 w-0.5 h-[calc(100%+3rem)] bg-primary-light hidden md:block"></div>
-                    
-                    <div class="md:ml-8 mt-4 md:mt-0">
-                        <h3 class="text-xl font-semibold mb-2">Analyze & Optimize</h3>
-                        <p class="text-gray-600">
-                            Get insights and recommendations to reduce your carbon footprint.
-                        </p>
+                <div class="bg-white p-6 rounded-2xl shadow-lg border border-gray-100 relative overflow-hidden group hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+                    <div class="absolute -right-6 -top-6 w-24 h-24 bg-primary/10 rounded-full"></div>
+                    <div class="flex items-center mb-4">
+                        <div class="w-14 h-14 bg-gradient-green rounded-xl flex items-center justify-center text-white font-bold text-lg z-10 shadow-md mr-4 group-hover:scale-110 transition-transform duration-300">
+                            <i class="fas fa-seedling"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold group-hover:text-primary transition-colors duration-300">Sustainable Farming</h3>
                     </div>
+                    <p class="text-gray-600 mb-4">
+                        Farmers implement sustainable agricultural practices that sequester carbon while improving soil health and crop yields.
+                    </p>
+                    <img src="https://images.unsplash.com/photo-1625246333195-78d9c38ad449?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8c3VzdGFpbmFibGUlMjBmYXJtaW5nfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60" alt="Sustainable farming practices" class="w-full h-48 object-cover rounded-xl mt-2">
                 </div>
                 
                 <!-- Step 3 -->
-                <div class="flex flex-col md:flex-row items-start mb-12 relative">
-                    <div class="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-primary to-primary-dark rounded-full flex items-center justify-center text-white font-bold text-lg z-10">3</div>
-                    
-                    <!-- Connecting Line -->
-                    <div class="absolute top-12 left-6 w-0.5 h-[calc(100%+3rem)] bg-primary-light hidden md:block"></div>
-                    
-                    <div class="md:ml-8 mt-4 md:mt-0">
-                        <h3 class="text-xl font-semibold mb-2">Offset Remaining Emissions</h3>
-                        <p class="text-gray-600">
-                            Purchase verified carbon credits from our marketplace to offset your unavoidable emissions.
-                        </p>
+                <div class="bg-white p-6 rounded-2xl shadow-lg border border-gray-100 relative overflow-hidden group hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+                    <div class="absolute -right-6 -top-6 w-24 h-24 bg-primary/10 rounded-full"></div>
+                    <div class="flex items-center mb-4">
+                        <div class="w-14 h-14 bg-gradient-green rounded-xl flex items-center justify-center text-white font-bold text-lg z-10 shadow-md mr-4 group-hover:scale-110 transition-transform duration-300">
+                            <i class="fas fa-cube"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold group-hover:text-primary transition-colors duration-300">Blockchain Verification</h3>
                     </div>
+                    <p class="text-gray-600 mb-4">
+                        Carbon credits are verified and recorded on the blockchain, ensuring transparency, security, and traceability for all transactions.
+                    </p>
+                    <img src="https://images.unsplash.com/photo-1639762681057-408e52192e55?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTZ8fGJsb2NrY2hhaW58ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60" alt="Blockchain verification" class="w-full h-48 object-cover rounded-xl mt-2">
                 </div>
                 
                 <!-- Step 4 -->
-                <div class="flex flex-col md:flex-row items-start">
-                    <div class="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-primary to-primary-dark rounded-full flex items-center justify-center text-white font-bold text-lg z-10">4</div>
-                    
-                    <div class="md:ml-8 mt-4 md:mt-0">
-                        <h3 class="text-xl font-semibold mb-2">Track & Report</h3>
-                        <p class="text-gray-600">
-                            Monitor your progress and generate reports for stakeholders and compliance.
-                        </p>
+                <div class="bg-white p-6 rounded-2xl shadow-lg border border-gray-100 relative overflow-hidden group hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+                    <div class="absolute -right-6 -top-6 w-24 h-24 bg-primary/10 rounded-full"></div>
+                    <div class="flex items-center mb-4">
+                        <div class="w-14 h-14 bg-gradient-green rounded-xl flex items-center justify-center text-white font-bold text-lg z-10 shadow-md mr-4 group-hover:scale-110 transition-transform duration-300">
+                            <i class="fas fa-hand-holding-usd"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold group-hover:text-primary transition-colors duration-300">Community Benefits</h3>
+                    </div>
+                    <p class="text-gray-600 mb-4">
+                        Revenue from carbon credit sales is distributed fairly among farmers through our transparent chama savings model, empowering local communities.
+                    </p>
+                    <img src="https://images.unsplash.com/photo-1532629345422-7515f3d16bb6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8ZmFybWVyJTIwcGF5bWVudHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60" alt="Community benefits" class="w-full h-48 object-cover rounded-xl mt-2">
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Blockchain Benefits Section -->
+    <section class="py-20 bg-gradient-to-br from-primary/5 to-accent/5 relative overflow-hidden">
+        <!-- Decorative elements -->
+        <div class="absolute top-0 left-0 w-full h-full bg-[url('https://images.unsplash.com/photo-1639762681057-408e52192e55?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=60')] opacity-5 bg-cover bg-center"></div>
+        
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <div class="inline-block px-3 py-1 bg-primary/10 text-primary rounded-full font-medium text-sm mb-4">
+                    Blockchain-Powered
+                </div>
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                    Transparency & Security with <span class="text-gradient">Blockchain</span>
+                </h2>
+                <p class="text-lg text-gray-600 mb-6">
+                    Carbon Chama leverages blockchain technology to ensure complete transparency, security, and fair distribution of benefits.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <!-- Feature 1 -->
+                <div class="bg-white p-6 rounded-2xl shadow-lg border border-gray-100 relative overflow-hidden group hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+                    <div class="w-14 h-14 bg-gradient-green rounded-xl flex items-center justify-center text-white font-bold text-lg z-10 shadow-md mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 group-hover:text-primary transition-colors duration-300">Secure Transactions</h3>
+                    <p class="text-gray-600">
+                        All carbon credit transactions are secured by blockchain technology, preventing fraud and ensuring authenticity of every credit.
+                    </p>
+                </div>
+                
+                <!-- Feature 2 -->
+                <div class="bg-white p-6 rounded-2xl shadow-lg border border-gray-100 relative overflow-hidden group hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+                    <div class="w-14 h-14 bg-gradient-green rounded-xl flex items-center justify-center text-white font-bold text-lg z-10 shadow-md mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <i class="fas fa-search-dollar"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 group-hover:text-primary transition-colors duration-300">Complete Transparency</h3>
+                    <p class="text-gray-600">
+                        Track every carbon credit from creation to retirement with our transparent blockchain ledger, accessible to all stakeholders.
+                    </p>
+                </div>
+                
+                <!-- Feature 3 -->
+                <div class="bg-white p-6 rounded-2xl shadow-lg border border-gray-100 relative overflow-hidden group hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+                    <div class="w-14 h-14 bg-gradient-green rounded-xl flex items-center justify-center text-white font-bold text-lg z-10 shadow-md mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <i class="fas fa-hand-holding-usd"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 group-hover:text-primary transition-colors duration-300">Fair Distribution</h3>
+                    <p class="text-gray-600">
+                        Smart contracts ensure fair and automatic distribution of carbon credit revenue to all participating farmers in the chama.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="mt-16 text-center">
+                <div class="inline-block p-8 bg-white rounded-2xl shadow-xl border border-gray-100 max-w-3xl">
+                    <h3 class="text-2xl font-bold mb-4">How Our Chama Savings Model Works</h3>
+                    <p class="text-gray-600 mb-6">
+                        Inspired by traditional African "Chama" saving groups, our platform enables small-scale farmers to pool resources, implement sustainable practices, and share the benefits of carbon credits fairly.
+                    </p>
+                    <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+                        <div class="flex flex-col items-center">
+                            <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-2">
+                                <i class="fas fa-users text-primary text-xl"></i>
+                            </div>
+                            <p class="font-medium">Community Pooling</p>
+                        </div>
+                        <div class="hidden md:block text-primary">
+                            <i class="fas fa-arrow-right text-xl"></i>
+                        </div>
+                        <div class="md:hidden text-primary">
+                            <i class="fas fa-arrow-down text-xl"></i>
+                        </div>
+                        <div class="flex flex-col items-center">
+                            <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-2">
+                                <i class="fas fa-seedling text-primary text-xl"></i>
+                            </div>
+                            <p class="font-medium">Carbon Sequestration</p>
+                        </div>
+                        <div class="hidden md:block text-primary">
+                            <i class="fas fa-arrow-right text-xl"></i>
+                        </div>
+                        <div class="md:hidden text-primary">
+                            <i class="fas fa-arrow-down text-xl"></i>
+                        </div>
+                        <div class="flex flex-col items-center">
+                            <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-2">
+                                <i class="fas fa-hand-holding-usd text-primary text-xl"></i>
+                            </div>
+                            <p class="font-medium">Fair Distribution</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -341,26 +504,38 @@
     </section>
     
     <!-- Pricing Section -->
-    <section id="pricing" class="py-20 bg-white">
-        <div class="container mx-auto px-6">
+    <section id="pricing" class="py-20 bg-white relative overflow-hidden">
+        <!-- Decorative elements -->
+        <div class="absolute top-20 right-20 w-64 h-64 bg-primary/5 rounded-full filter blur-3xl opacity-70"></div>
+        <div class="absolute bottom-20 left-20 w-64 h-64 bg-accent/5 rounded-full filter blur-3xl opacity-70"></div>
+        
+        <div class="container mx-auto px-6 relative z-10">
             <div class="text-center max-w-3xl mx-auto mb-16">
+                <div class="inline-block px-3 py-1 bg-primary/10 text-primary rounded-full font-medium text-sm mb-4">
+                    Membership Options
+                </div>
                 <h2 class="text-3xl md:text-4xl font-bold mb-4">
-                    Simple, Transparent <span class="text-primary relative">Pricing<span class="absolute bottom-0 left-0 w-full h-3 bg-primary/10 -z-10 rounded"></span></span>
+                    Join Our <span class="text-gradient">Carbon Chama</span> Community
                 </h2>
                 <p class="text-lg text-gray-600">
-                    Choose the plan that fits your organization's needs.
+                    Choose the membership that fits your role in the sustainable farming ecosystem.
                 </p>
             </div>
             
             <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-                <!-- Starter Plan -->
-                <div class="bg-white rounded-xl shadow-md border border-gray-200 overflow-hidden transition-all hover:shadow-xl">
-                    <div class="p-8 border-b border-gray-200">
-                        <h3 class="text-xl font-semibold mb-4">Starter</h3>
-                        <div class="flex items-baseline">
-                            <span class="text-gray-600 text-2xl">$</span>
-                            <span class="text-4xl font-bold text-primary-dark">49</span>
-                            <span class="text-gray-600 ml-1">/month</span>
+                <!-- Small-Scale Farmer Plan -->
+                <div class="bg-white rounded-xl shadow-md border border-gray-200 overflow-hidden transition-all hover:shadow-xl group hover:-translate-y-1 duration-300">
+                    <div class="p-8 border-b border-gray-200 relative overflow-hidden">
+                        <div class="absolute -right-6 -top-6 w-24 h-24 bg-primary/10 rounded-full group-hover:bg-primary/20 transition-colors duration-300"></div>
+                        <div class="relative z-10">
+                            <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors duration-300">
+                                <i class="fas fa-seedling text-primary text-xl"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold mb-4">Small-Scale Farmer</h3>
+                            <div class="flex items-baseline">
+                                <span class="text-4xl font-bold text-primary-dark">Free</span>
+                                <span class="text-gray-600 ml-1">to join</span>
+                            </div>
                         </div>
                     </div>
                     
@@ -368,50 +543,56 @@
                         <ul class="space-y-4">
                             <li class="flex items-center">
                                 <i class="fas fa-check text-primary mr-3"></i>
-                                <span>Basic carbon footprint tracking</span>
+                                <span>Join the Carbon Chama community</span>
                             </li>
                             <li class="flex items-center">
                                 <i class="fas fa-check text-primary mr-3"></i>
-                                <span>Monthly reports</span>
+                                <span>Earn from sustainable farming practices</span>
                             </li>
                             <li class="flex items-center">
                                 <i class="fas fa-check text-primary mr-3"></i>
-                                <span>Access to marketplace</span>
+                                <span>Access to farming best practices</span>
                             </li>
                             <li class="flex items-center">
                                 <i class="fas fa-check text-primary mr-3"></i>
-                                <span>Email support</span>
+                                <span>Blockchain-secured transactions</span>
                             </li>
-                            <li class="flex items-center text-gray-400">
-                                <i class="fas fa-times mr-3"></i>
-                                <span>Team collaboration</span>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-primary mr-3"></i>
+                                <span>Fair revenue distribution</span>
                             </li>
-                            <li class="flex items-center text-gray-400">
-                                <i class="fas fa-times mr-3"></i>
-                                <span>API access</span>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-primary mr-3"></i>
+                                <span>Mobile app access</span>
                             </li>
                         </ul>
                         
                         <div class="mt-8">
-                            <a href="/signup?plan=starter" class="block w-full py-3 px-6 text-center border border-primary text-primary rounded-lg hover:bg-primary hover:text-white transition-colors">
-                                Get Started
+                            <a href="/signup?plan=farmer" class="block w-full py-3 px-6 text-center border border-primary text-primary rounded-lg hover:bg-primary hover:text-white transition-colors">
+                                Join as Farmer
                             </a>
                         </div>
                     </div>
                 </div>
                 
-                <!-- Business Plan -->
-                <div class="bg-white rounded-xl shadow-lg border-2 border-primary overflow-hidden transform scale-105 z-10 relative">
-                    <div class="absolute top-0 right-0 bg-primary text-white px-4 py-1 rounded-bl-lg text-sm font-medium">
+                <!-- Carbon Buyer Plan -->
+                <div class="bg-white rounded-xl shadow-lg border-2 border-primary overflow-hidden transform scale-105 z-10 relative group hover:-translate-y-1 duration-300">
+                    <div class="absolute top-0 right-0 bg-gradient-green text-white px-4 py-1 rounded-bl-lg text-sm font-medium">
                         Most Popular
                     </div>
                     
-                    <div class="p-8 border-b border-gray-200">
-                        <h3 class="text-xl font-semibold mb-4">Business</h3>
-                        <div class="flex items-baseline">
-                            <span class="text-gray-600 text-2xl">$</span>
-                            <span class="text-4xl font-bold text-primary-dark">149</span>
-                            <span class="text-gray-600 ml-1">/month</span>
+                    <div class="p-8 border-b border-gray-200 relative overflow-hidden">
+                        <div class="absolute -right-6 -top-6 w-24 h-24 bg-primary/10 rounded-full group-hover:bg-primary/20 transition-colors duration-300"></div>
+                        <div class="relative z-10">
+                            <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors duration-300">
+                                <i class="fas fa-building text-primary text-xl"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold mb-4">Carbon Buyer</h3>
+                            <div class="flex items-baseline">
+                                <span class="text-gray-600 text-2xl">$</span>
+                                <span class="text-4xl font-bold text-primary-dark">149</span>
+                                <span class="text-gray-600 ml-1">/month</span>
+                            </div>
                         </div>
                     </div>
                     
@@ -419,44 +600,50 @@
                         <ul class="space-y-4">
                             <li class="flex items-center">
                                 <i class="fas fa-check text-primary mr-3"></i>
-                                <span>Advanced carbon analytics</span>
+                                <span>Direct access to verified carbon credits</span>
                             </li>
                             <li class="flex items-center">
                                 <i class="fas fa-check text-primary mr-3"></i>
-                                <span>Weekly reports</span>
+                                <span>Blockchain-verified carbon offset certificates</span>
                             </li>
                             <li class="flex items-center">
                                 <i class="fas fa-check text-primary mr-3"></i>
-                                <span>Priority marketplace access</span>
+                                <span>Carbon footprint analytics dashboard</span>
                             </li>
                             <li class="flex items-center">
                                 <i class="fas fa-check text-primary mr-3"></i>
-                                <span>Priority support</span>
+                                <span>Weekly impact reports</span>
                             </li>
                             <li class="flex items-center">
                                 <i class="fas fa-check text-primary mr-3"></i>
-                                <span>Team collaboration (up to 10)</span>
+                                <span>Team collaboration (up to 10 users)</span>
                             </li>
                             <li class="flex items-center">
                                 <i class="fas fa-check text-primary mr-3"></i>
-                                <span>Basic API access</span>
+                                <span>Direct connection with farmer communities</span>
                             </li>
                         </ul>
                         
                         <div class="mt-8">
-                            <a href="/signup?plan=business" class="block w-full py-3 px-6 text-center bg-primary text-white rounded-lg hover:bg-primary-dark transition-colors">
-                                Get Started
+                            <a href="/signup?plan=buyer" class="block w-full py-3 px-6 text-center bg-gradient-green text-white rounded-lg hover:opacity-90 transition-opacity">
+                                Become a Carbon Buyer
                             </a>
                         </div>
                     </div>
                 </div>
                 
-                <!-- Enterprise Plan -->
-                <div class="bg-white rounded-xl shadow-md border border-gray-200 overflow-hidden transition-all hover:shadow-xl">
-                    <div class="p-8 border-b border-gray-200">
-                        <h3 class="text-xl font-semibold mb-4">Enterprise</h3>
-                        <div class="flex items-baseline justify-center">
-                            <span class="text-2xl font-semibold text-primary-dark">Custom</span>
+                <!-- Project Investor Plan -->
+                <div class="bg-white rounded-xl shadow-md border border-gray-200 overflow-hidden transition-all hover:shadow-xl group hover:-translate-y-1 duration-300">
+                    <div class="p-8 border-b border-gray-200 relative overflow-hidden">
+                        <div class="absolute -right-6 -top-6 w-24 h-24 bg-primary/10 rounded-full group-hover:bg-primary/20 transition-colors duration-300"></div>
+                        <div class="relative z-10">
+                            <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors duration-300">
+                                <i class="fas fa-globe-africa text-primary text-xl"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold mb-4">Project Investor</h3>
+                            <div class="flex items-baseline justify-center">
+                                <span class="text-2xl font-semibold text-primary-dark">Custom</span>
+                            </div>
                         </div>
                     </div>
                     
@@ -464,33 +651,33 @@
                         <ul class="space-y-4">
                             <li class="flex items-center">
                                 <i class="fas fa-check text-primary mr-3"></i>
-                                <span>Full-suite carbon management</span>
+                                <span>Fund multiple Carbon Chama projects</span>
                             </li>
                             <li class="flex items-center">
                                 <i class="fas fa-check text-primary mr-3"></i>
-                                <span>Real-time reporting</span>
+                                <span>Real-time impact monitoring</span>
                             </li>
                             <li class="flex items-center">
                                 <i class="fas fa-check text-primary mr-3"></i>
-                                <span>Custom marketplace integration</span>
+                                <span>ESG reporting and compliance</span>
                             </li>
                             <li class="flex items-center">
                                 <i class="fas fa-check text-primary mr-3"></i>
-                                <span>Dedicated account manager</span>
+                                <span>Dedicated investment manager</span>
                             </li>
                             <li class="flex items-center">
                                 <i class="fas fa-check text-primary mr-3"></i>
-                                <span>Unlimited team members</span>
+                                <span>Priority access to new projects</span>
                             </li>
                             <li class="flex items-center">
                                 <i class="fas fa-check text-primary mr-3"></i>
-                                <span>Full API access</span>
+                                <span>Customized blockchain solutions</span>
                             </li>
                         </ul>
                         
                         <div class="mt-8">
                             <a href="/contact" class="block w-full py-3 px-6 text-center border border-primary text-primary rounded-lg hover:bg-primary hover:text-white transition-colors">
-                                Contact Sales
+                                Become an Investor
                             </a>
                         </div>
                     </div>
@@ -500,21 +687,77 @@
     </section>
     
     <!-- CTA Section -->
-    <section class="py-20 bg-gradient-to-br from-primary to-primary-dark text-white">
-        <div class="container mx-auto px-6 text-center">
-            <h2 class="text-3xl md:text-4xl font-bold mb-4">
-                Ready to Reduce Your <span class="relative">Carbon Footprint?<span class="absolute bottom-0 left-0 w-full h-3 bg-white/20 -z-10 rounded"></span></span>
-            </h2>
-            <p class="text-xl opacity-90 max-w-2xl mx-auto mb-8">
-                Join thousands of organizations making a positive impact on the environment.
-            </p>
-            <div class="flex flex-col sm:flex-row justify-center gap-4">
-                <a href="/signup" class="px-8 py-4 bg-white text-primary-dark rounded-lg hover:bg-gray-100 transition-colors font-medium">
-                    Get Started Now
-                </a>
-                <a href="/contact" class="px-8 py-4 border border-white text-white rounded-lg hover:bg-white/10 transition-colors font-medium">
-                    Talk to Sales
-                </a>
+    <section class="py-20 bg-gradient-to-br from-primary to-primary-dark text-white relative overflow-hidden">
+        <!-- Decorative elements -->
+        <div class="absolute top-0 right-0 w-96 h-96 bg-white/10 rounded-full filter blur-3xl opacity-30"></div>
+        <div class="absolute bottom-0 left-0 w-96 h-96 bg-white/10 rounded-full filter blur-3xl opacity-30"></div>
+        
+        <!-- Background image with overlay -->
+        <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1569880153113-76e33fc52d5f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=60')] bg-cover bg-center opacity-10"></div>
+        
+        <!-- Floating elements -->
+        <div class="absolute top-20 left-20 w-16 h-16 bg-white rounded-full shadow-lg opacity-20 animate-float"></div>
+        <div class="absolute bottom-20 right-20 w-12 h-12 bg-white rounded-full shadow-lg opacity-20 animate-float"></div>
+        
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="text-left">
+                    <div class="inline-block px-4 py-1.5 bg-white/20 text-white rounded-full font-medium text-sm mb-6">
+                        Join Our Chama Community
+                    </div>
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6">
+                        Empower Small-Scale <span class="relative">Farmers<span class="absolute bottom-0 left-0 w-full h-3 bg-white/20 -z-10 rounded"></span></span>
+                    </h2>
+                    <p class="text-xl opacity-90 mb-6">
+                        Carbon Chama connects small-scale farmers with global carbon markets, creating sustainable income while fighting climate change.
+                    </p>
+                    
+                    <div class="space-y-4 mb-8">
+                        <div class="flex items-center">
+                            <div class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center mr-4">
+                                <i class="fas fa-users text-white"></i>
+                            </div>
+                            <p>Join a community of like-minded farmers and organizations</p>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center mr-4">
+                                <i class="fas fa-lock text-white"></i>
+                            </div>
+                            <p>Secure blockchain-verified carbon credit transactions</p>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center mr-4">
+                                <i class="fas fa-hand-holding-usd text-white"></i>
+                            </div>
+                            <p>Fair distribution of benefits through our chama savings model</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="/signup" class="px-8 py-4 bg-white text-primary-dark rounded-full hover:bg-gray-100 transition-all duration-300 font-medium group">
+                            Join Carbon Chama <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
+                        </a>
+                        <a href="/contact" class="px-8 py-4 border border-white text-white rounded-full hover:bg-white/10 transition-all duration-300 font-medium">
+                            Learn More
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="hidden md:block">
+                    <div class="bg-white/10 p-6 rounded-2xl backdrop-blur-sm">
+                        <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80" alt="Small-scale farmers" class="rounded-xl shadow-lg transform -rotate-2 hover:rotate-0 transition-transform duration-300">
+                        <div class="mt-6 p-4 bg-white/20 rounded-xl backdrop-blur-sm transform rotate-2 hover:rotate-0 transition-transform duration-300">
+                            <div class="flex items-center mb-3">
+                                <div class="w-10 h-10 bg-white/30 rounded-full flex items-center justify-center mr-3">
+                                    <i class="fas fa-quote-left text-white"></i>
+                                </div>
+                                <h3 class="font-semibold">Farmer Success Story</h3>
+                            </div>
+                            <p class="italic">"Joining Carbon Chama has transformed our community. We now earn sustainable income while practicing regenerative farming techniques that heal our land."</p>
+                            <p class="mt-2 font-medium">- Maria, Small-scale Farmer</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -526,24 +769,26 @@
                 <!-- Brand -->
                 <div class="col-span-2">
                     <div class="flex items-center space-x-2 mb-6">
-                        <i class="fas fa-leaf text-primary text-2xl"></i>
-                        <span class="text-xl font-bold">Carbon Registry</span>
+                        <div class="w-10 h-10 bg-gradient-green rounded-full flex items-center justify-center">
+                            <i class="fas fa-leaf text-white text-xl"></i>
+                        </div>
+                        <span class="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-green-600">Carbon Chama</span>
                     </div>
                     <p class="text-gray-400 mb-6">
-                        Making carbon management accessible, transparent, and effective.
+                        Making carbon management accessible, transparent, and effective for a greener future.
                     </p>
                     <div class="flex space-x-4">
-                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition-colors">
-                            <i class="fab fa-twitter"></i>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-gradient-green transition-all duration-300 group">
+                            <i class="fab fa-twitter group-hover:text-white"></i>
                         </a>
-                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition-colors">
-                            <i class="fab fa-linkedin-in"></i>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-gradient-green transition-all duration-300 group">
+                            <i class="fab fa-linkedin-in group-hover:text-white"></i>
                         </a>
-                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition-colors">
-                            <i class="fab fa-facebook-f"></i>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-gradient-green transition-all duration-300 group">
+                            <i class="fab fa-facebook-f group-hover:text-white"></i>
                         </a>
-                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition-colors">
-                            <i class="fab fa-instagram"></i>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-gradient-green transition-all duration-300 group">
+                            <i class="fab fa-instagram group-hover:text-white"></i>
                         </a>
                     </div>
                 </div>
@@ -594,7 +839,7 @@
             </div>
             
             <div class="pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center">
-                <p class="text-gray-500 text-sm">© 2025 Carbon Registry. All rights reserved.</p>
+                <p class="text-gray-500 text-sm">© 2025 Carbon Chama. All rights reserved.</p>
                 <div class="flex space-x-6 mt-4 md:mt-0">
                     <a href="#" class="text-gray-500 hover:text-white text-sm">Privacy Policy</a>
                     <a href="#" class="text-gray-500 hover:text-white text-sm">Terms of Service</a>
