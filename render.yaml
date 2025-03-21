@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: carbon-registry
+    env: go
+    buildCommand: go build -o carbon-registry
+    startCommand: ./carbon-registry
+    envVars:
+      - key: PORT
+        value: 8080
