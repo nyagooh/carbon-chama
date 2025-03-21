@@ -11,15 +11,35 @@ import (
 )
 
 var googleOauthConfig = &oauth2.Config{
-	ClientID:     "235545557579-1il82tci3v7nu4hh8sjhv6tqsk043kfg.apps.googleusercontent.com",
-	ClientSecret: " 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",
-	RedirectURL:  "http://localhost:8080/auth/callback",
+	ClientID:     "142302828852-pk4b7kvu5ame1eglj2oo0hgi2dg2d4cc.apps.googleusercontent.com",
+	ClientSecret: "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",
+	RedirectURL:  "http://localhost:8080/auth/google/callback",
 	Scopes:       []string{"email", "profile"},
 	Endpoint:     google.Endpoint,
 }
 
 // Session store
 var store = sessions.NewCookieStore([]byte("super-secret-key"))
+
+// userDB is a mock database for demonstration purposes
+var userDB = &mockUserDB{}
+
+type mockUserDB struct{}
+
+func (m *mockUserDB) AddUser(username, email, password string) (*User, error) {
+	// Mock implementation, replace with actual database logic
+	return &User{Username: username, Email: email}, nil
+}
+
+func (m *mockUserDB) Authenticate(email, password string) (*User, bool) {
+	// Mock implementation, replace with actual database logic
+	return &User{Username: "username", Email: email}, true
+}
+
+type User struct {
+	Username string
+	Email    string
+}
 
 func HandleGoogleLogin(w http.ResponseWriter, r *http.Request) {
 	Url := googleOauthConfig.AuthCodeURL("random-state-token")
@@ -68,14 +88,20 @@ func HandleGoogleCallback(w http.ResponseWriter, r *http.Request) {
 
 func HandleDashboard(w http.ResponseWriter, r *http.Request) {
 	session, _ := store.Get(r, "sessionname")
-	email, emailExists := session.Values["email"].(string)
-	name, nameExists := session.Values["name"].(string)
+	email, emailExists := session.Values["Email"].(string)
+	name, nameExists := session.Values["Name"].(string)
 
 	if !emailExists || !nameExists {
 		http.Redirect(w, r, "/login", http.StatusFound)
 		return
 	}
-	fmt.Printf("Welcome, %s! Your email is %s", name, email)
+
+	// Render the dashboard HTML template
+	fmt.Fprintf(w, "<html><head><title>Dashboard</title></head><body>")
+	fmt.Fprintf(w, "<h1>Welcome, %s!</h1>", name)
+	fmt.Fprintf(w, "<p>Your email is %s</p>", email)
+	fmt.Fprintf(w, "<a href=\"/logout\">Logout</a>")
+	fmt.Fprintf(w, "</body></html>")
 }
 
 // implement logout
@@ -87,4 +113,77 @@ func HandleLogout(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	http.Redirect(w, r, "/login", http.StatusSeeOther)
+}
+
+// HandleSignup processes the signup form submission
+func HandleSignup(w http.ResponseWriter, r *http.Request) {
+	if r.Method != http.MethodPost {
+		http.Error(w, "Method not allowed", http.StatusMethodNotAllowed)
+		return
+	}
+
+	// Parse form data
+	err := r.ParseForm()
+	if err != nil {
+		http.Error(w, "Error parsing form", http.StatusBadRequest)
+		return
+	}
+
+	username := r.FormValue("username")
+	email := r.FormValue("email")
+	password := r.FormValue("password")
+
+	// Validate input (basic validation)
+	if username == "" || email == "" || password == "" {
+		http.Redirect(w, r, "/signup?error=missing_fields", http.StatusSeeOther)
+		return
+	}
+
+	// Create user
+	_, err = userDB.AddUser(username, email, password)
+	if err != nil {
+		http.Redirect(w, r, "/signup?error=user_exists", http.StatusSeeOther)
+		return
+	}
+
+	// Redirect to login page
+	http.Redirect(w, r, "/login", http.StatusSeeOther)
+}
+
+// HandleLogin processes the login form submission
+func HandleLogin(w http.ResponseWriter, r *http.Request) {
+	if r.Method != http.MethodPost {
+		http.Error(w, "Method not allowed", http.StatusMethodNotAllowed)
+		return
+	}
+
+	// Parse form data
+	err := r.ParseForm()
+	if err != nil {
+		http.Error(w, "Error parsing form", http.StatusBadRequest)
+		return
+	}
+
+	email := r.FormValue("email")
+	password := r.FormValue("password")
+
+	// Authenticate user
+	user, ok := userDB.Authenticate(email, password)
+	if !ok {
+		// Authentication failed
+		http.Redirect(w, r, "/login?error=invalid_credentials", http.StatusSeeOther)
+		return
+	}
+
+	// Create session
+	session, _ := store.Get(r, "sessionname")
+	session.Values["Email"] = user.Email
+	session.Values["Name"] = user.Username
+	if err := session.Save(r, w); err != nil {
+		http.Error(w, "Failed to save session", http.StatusInternalServerError)
+		return
+	}
+
+	// Redirect to dashboard
+	http.Redirect(w, r, "/dashboard", http.StatusSeeOther)
 }
