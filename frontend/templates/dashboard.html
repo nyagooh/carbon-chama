@@ -21,16 +21,16 @@
         }
     </script>
 </head>
-<body class="bg-gray-100 dark:bg-gray-900 text-gray-800 dark:text-white">
+<body class="bg-gray-100 text-gray-800">
     <div class="min-h-screen flex flex-col">
         <!-- Navbar -->
-        <nav class="bg-white dark:bg-gray-800 shadow-md">
+        <nav class="bg-white shadow-md">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex justify-between h-16">
                     <div class="flex items-center">
                         <div class="flex-shrink-0 flex items-center">
                             <i class="fas fa-leaf text-green-600 text-xl mr-2"></i>
-                            <span class="font-bold text-xl">Carbon Registry</span>
+                            <span class="font-bold text-xl">Carbon Chama</span>
                         </div>
                     </div>
                     <div class="flex items-center">
@@ -66,26 +66,26 @@
 
             <!-- Stats Cards -->
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-                <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
+                <div class="bg-white rounded-lg shadow-md p-6">
                     <div class="flex items-center mb-4">
                         <i class="fas fa-users text-primary mr-3 text-xl"></i>
-                        <h2 class="text-gray-500 dark:text-gray-400">Total Chamas</h2>
+                        <h2 class="text-gray-500">Total Chamas</h2>
                     </div>
                     <p class="text-3xl font-bold">3</p>
                 </div>
 
-                <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
+                <div class="bg-white rounded-lg shadow-md p-6">
                     <div class="flex items-center mb-4">
                         <i class="fas fa-chart-line text-primary mr-3 text-xl"></i>
-                        <h2 class="text-gray-500 dark:text-gray-400">Carbon Credits</h2>
+                        <h2 class="text-gray-500">Carbon Credits</h2>
                     </div>
                     <p class="text-3xl font-bold" id="carbonCreditsDisplay">12,500</p>
                 </div>
 
-                <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
+                <div class="bg-white rounded-lg shadow-md p-6">
                     <div class="flex items-center mb-4">
                         <i class="fas fa-money-bill-wave text-primary mr-3 text-xl"></i>
-                        <h2 class="text-gray-500 dark:text-gray-400">Total Value</h2>
+                        <h2 class="text-gray-500">Total Value</h2>
                     </div>
                     <p class="text-3xl font-bold">$45,750</p>
                 </div>
@@ -95,10 +95,10 @@
             <h2 class="text-xl font-bold mb-4">My Carbon Chamas</h2>
 
             <!-- Chamas List -->
-            <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden">
-                <ul class="divide-y divide-gray-200 dark:divide-gray-700">
+            <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                <ul class="divide-y divide-gray-200">
                     <!-- Chama 1 -->
-                    <li class="hover:bg-gray-50 dark:hover:bg-gray-700 cursor-pointer" onclick="window.location.href='/chama'">
+                    <li class="hover:bg-gray-50 cursor-pointer" onclick="window.location.href='/chama'">
                         <div class="flex items-center flex-col sm:flex-row p-4 sm:p-6">
                             <div class="flex items-center mb-4 sm:mb-0">
                                 <div class="h-12 w-12 rounded-full bg-green-600 flex items-center justify-center text-white font-bold mr-4">
@@ -106,7 +106,7 @@
                                 </div>
                                 <div>
                                     <h3 class="text-lg font-medium">Forest Savers Chama</h3>
-                                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800 dark:bg-green-800 dark:text-green-100 mt-1">
+                                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800 mt-1">
                                         Reforestation
                                     </span>
                                 </div>
@@ -126,7 +126,7 @@
                     </li>
 
                     <!-- Chama 2 -->
-                    <li class="hover:bg-gray-50 dark:hover:bg-gray-700 cursor-pointer">
+                    <li class="hover:bg-gray-50 cursor-pointer">
                         <div class="flex items-center flex-col sm:flex-row p-4 sm:p-6">
                             <div class="flex items-center mb-4 sm:mb-0">
                                 <div class="h-12 w-12 rounded-full bg-blue-600 flex items-center justify-center text-white font-bold mr-4">
@@ -134,7 +134,7 @@
                                 </div>
                                 <div>
                                     <h3 class="text-lg font-medium">Ocean Cleaners</h3>
-                                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800 dark:bg-blue-800 dark:text-blue-100 mt-1">
+                                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800 mt-1">
                                         Ocean Conservation
                                     </span>
                                 </div>
@@ -154,7 +154,7 @@
                     </li>
 
                     <!-- Chama 3 -->
-                    <li class="hover:bg-gray-50 dark:hover:bg-gray-700 cursor-pointer">
+                    <li class="hover:bg-gray-50 cursor-pointer">
                         <div class="flex items-center flex-col sm:flex-row p-4 sm:p-6">
                             <div class="flex items-center mb-4 sm:mb-0">
                                 <div class="h-12 w-12 rounded-full bg-amber-600 flex items-center justify-center text-white font-bold mr-4">
@@ -162,7 +162,7 @@
                                 </div>
                                 <div>
                                     <h3 class="text-lg font-medium">Solar Energy Cooperative</h3>
-                                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-amber-100 text-amber-800 dark:bg-amber-800 dark:text-amber-100 mt-1">
+                                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-amber-100 text-amber-800 mt-1">
                                         Renewable Energy
                                     </span>
                                 </div>
@@ -185,9 +185,9 @@
         </main>
 
         <!-- Footer -->
-        <footer class="bg-white dark:bg-gray-800 py-4 mt-8">
+        <footer class="bg-white py-4 mt-8">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <p class="text-center text-gray-500 dark:text-gray-400 text-sm">
+                <p class="text-center text-gray-500 text-sm">
                     2025 Carbon Registry. All rights reserved.
                 </p>
             </div>
