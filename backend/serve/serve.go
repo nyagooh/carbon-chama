@@ -20,6 +20,8 @@ func ServePage(w http.ResponseWriter, r *http.Request) {
 		page = "login.html"
 	case "/":
 		page = "login.html"
+	case "/dashboard":
+		page = "dashboard.html"
 	default:
 		http.NotFound(w, r)
 		return
