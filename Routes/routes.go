@@ -21,7 +21,7 @@ func Router() *http.ServeMux {
 	mux.HandleFunc("/", s.ServePage)
 	mux.HandleFunc("/chama", s.ServePage)
 	mux.HandleFunc("/dashboard2", s.ServePage)
-	mux.HandleFunc("/save-credits", s.ServePage)
+	mux.HandleFunc("/save", s.ServePage)
 
 	// Authentication routes
 	mux.HandleFunc("/auth/google", m.HandleGoogleLogin)
