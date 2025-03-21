@@ -1,4 +1,4 @@
-FROM golang:1.21-alpine
+FROM golang:1.21-alpine AS builder
 
 WORKDIR /app
 
@@ -10,10 +10,19 @@ RUN go mod download
 COPY . .
 
 # Build the application
-RUN go build -o app
+RUN mkdir -p /app/bin && go build -o /app/bin/carbon-registry
+
+FROM alpine:latest
+WORKDIR /app
+COPY --from=builder /app/bin/carbon-registry /app/
+COPY frontend/ /app/frontend/
+
+# Create directory for SQLite database
+RUN mkdir -p /app/data
 
 # Expose the port the app runs on
 EXPOSE 1939
+ENV PORT=1939
 
 # Command to run the application
-CMD ["./app"]
+CMD ["./carbon-registry"]

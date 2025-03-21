@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: carbon-registry
+    env: go
+    buildCommand: ./build.sh
+    startCommand: ./bin/carbon-registry
+    envVars:
+      - key: PORT
+        value: 8080
+    staticPublishPath: ./public
