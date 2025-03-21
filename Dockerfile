@@ -25,4 +25,4 @@ EXPOSE 8080
 ENV PORT=8080
 
 # Command to run the application
-CMD ["./app/carbon-registry"]
+CMD ["go run main.go"]
