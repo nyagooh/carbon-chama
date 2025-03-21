@@ -36,15 +36,19 @@
                     <div class="flex items-center">
                         <div class="ml-3 relative flex items-center space-x-4">
                             <div class="flex flex-col items-end">
-                                <span class="font-medium">{{ .Username }}</span>
-                                <span class="text-sm text-gray-500 dark:text-gray-400">{{ .Email }}</span>
+                                <div class="flex items-center">
+                                    <div class="flex-shrink-0">
+                                        <img class="h-10 w-10 rounded-full" src="{{ .ProfilePic }}" alt="Profile Picture">
+                                    </div>
+                                    <div class="ml-3">
+                                        <p class="text-sm font-medium text-gray-700">Welcome Back, {{ .Username }}!</p>
+                                        <p class="text-sm text-gray-500">{{ .Email }}</p>
+                                    </div>
+                                </div>
+                                <a href="/logout" class="px-3 py-2 rounded-md text-sm font-medium bg-red-600 text-white hover:bg-red-700">
+                                    Logout
+                                </a>
                             </div>
-                            <div class="h-10 w-10 rounded-full bg-primary flex items-center justify-center text-white font-bold">
-                                {{ if .Username }}{{ slice .Username 0 1 | toUpper }}{{ else }}U{{ end }}
-                            </div>
-                            <a href="/logout" class="px-3 py-2 rounded-md text-sm font-medium bg-red-600 text-white hover:bg-red-700">
-                                Logout
-                            </a>
                         </div>
                     </div>
                 </div>
@@ -184,7 +188,7 @@
         <footer class="bg-white dark:bg-gray-800 py-4 mt-8">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <p class="text-center text-gray-500 dark:text-gray-400 text-sm">
-                    © 2025 Carbon Registry. All rights reserved.
+                    2025 Carbon Registry. All rights reserved.
                 </p>
             </div>
         </footer>

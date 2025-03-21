@@ -3,6 +3,7 @@ package auth
 import (
 	"encoding/json"
 	"net/http"
+	"text/template"
 
 	"github.com/gorilla/sessions"
 	"golang.org/x/oauth2"
@@ -67,6 +68,7 @@ func HandleGoogleCallback(w http.ResponseWriter, r *http.Request) {
 	var user struct {
 		Email string `json:"email"`
 		Name  string `json:"name"`
+		Picture string `json:"picture"`
 	}
 
 	if err := json.NewDecoder(resp.Body).Decode(&user); err != nil {
@@ -77,6 +79,7 @@ func HandleGoogleCallback(w http.ResponseWriter, r *http.Request) {
 	session, _ := store.Get(r, "sessionname")
 	session.Values["Email"] = user.Email
 	session.Values["Name"] = user.Name
+	session.Values["ProfilePic"] = user.Picture
 	if err := session.Save(r, w); err != nil {
 		http.Error(w, "Failed to save session", http.StatusInternalServerError)
 		return
@@ -87,16 +90,28 @@ func HandleGoogleCallback(w http.ResponseWriter, r *http.Request) {
 
 func HandleDashboard(w http.ResponseWriter, r *http.Request) {
 	session, _ := store.Get(r, "sessionname")
-	_, emailExists := session.Values["Email"].(string)
-	_, nameExists := session.Values["Name"].(string)
+	email, emailExists := session.Values["Email"].(string)
+	name, nameExists := session.Values["Name"].(string)
+	profilePic, _ := session.Values["ProfilePic"].(string)
 
 	if !emailExists || !nameExists {
 		http.Redirect(w, r, "/login", http.StatusFound)
 		return
 	}
 
-	// Serve the dashboard HTML file from the templates directory
-	http.ServeFile(w, r, "./frontend/templates/dashboard.html")
+	tmpl := template.Must(template.ParseFiles("./frontend/templates/dashboard.html"))
+
+	data := struct {
+		Email      string
+		Username   string
+		ProfilePic string
+	}{
+		Email:      email,
+		Username:   name,
+		ProfilePic: profilePic,
+	}
+
+	tmpl.Execute(w, data)
 }
 
 // implement logout
