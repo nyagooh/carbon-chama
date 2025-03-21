@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verify Carbon Credits</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100">
+    <div class="max-w-3xl mx-auto mt-8 p-6 bg-white rounded-lg shadow-md">
+        <h1 class="text-3xl font-bold mb-6">Verify Carbon Credits</h1>
+        <form>
+            <!-- Credit Serial Number -->
+            <div class="mb-6">
+                <label for="credit-serial" class="block text-sm font-medium text-gray-700">Credit Serial Number</label>
+                <input type="text" id="credit-serial" placeholder="VCS-654-2025-001-010" required
+                       class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500">
+            </div>
+
+            <!-- Project Name -->
+            <div class="mb-6">
+                <label for="project-name" class="block text-sm font-medium text-gray-700">Project Name</label>
+                <input type="text" id="project-name" required
+                       class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500">
+            </div>
+
+            <!-- Registry -->
+            <div class="mb-6">
+                <label for="registry" class="block text-sm font-medium text-gray-700">Registry</label>
+                <input type="text" id="registry" required
+                       class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500">
+            </div>
+
+            <!-- Ownership Name -->
+            <div class="mb-6">
+                <label for="ownership-name" class="block text-sm font-medium text-gray-700">Ownership Name</label>
+                <input type="text" id="ownership-name" required
+                       class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500">
+            </div>
+
+            <!-- Verify Button -->
+            <div class="text-right">
+                <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500">
+                    save
+                </button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
