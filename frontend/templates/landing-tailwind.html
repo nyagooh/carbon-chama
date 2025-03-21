@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carbon Registry - Sustainable Carbon Management</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            light: '#81C784',
+                            DEFAULT: '#4CAF50',
+                            dark: '#2E7D32',
+                        },
+                        secondary: '#66BB6A',
+                        accent: '#43A047',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-sans text-gray-800 bg-white">
+    <!-- Hero Section -->
+    <header class="bg-gradient-to-br from-gray-50 to-gray-100 relative overflow-hidden">
+        <!-- Background Circles -->
+        <div class="absolute top-0 right-0 w-96 h-96 bg-primary-light/10 rounded-full -translate-y-1/2 translate-x-1/3"></div>
+        <div class="absolute bottom-0 left-0 w-96 h-96 bg-primary-dark/10 rounded-full translate-y-1/2 -translate-x-1/3"></div>
+        
+        <!-- Navigation -->
+        <nav class="container mx-auto px-6 py-6 flex justify-between items-center relative z-10">
+            <div class="flex items-center space-x-2">
+                <i class="fas fa-leaf text-primary-dark text-2xl"></i>
+                <span class="text-xl font-bold text-primary-dark">Carbon Registry</span>
+            </div>
+            
+            <div class="hidden md:flex space-x-8">
+                <a href="#features" class="text-gray-600 hover:text-primary transition-colors">Features</a>
+                <a href="#how-it-works" class="text-gray-600 hover:text-primary transition-colors">How It Works</a>
+                <a href="#testimonials" class="text-gray-600 hover:text-primary transition-colors">Testimonials</a>
+                <a href="#pricing" class="text-gray-600 hover:text-primary transition-colors">Pricing</a>
+            </div>
+            
+            <div class="flex space-x-4">
+                <a href="/login" class="px-4 py-2 border border-primary text-primary rounded-lg hover:bg-primary hover:text-white transition-colors">Log In</a>
+                <a href="/signup" class="px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary-dark transition-colors">Sign Up</a>
+            </div>
+        </nav>
+        
+        <!-- Hero Content -->
+        <div class="container mx-auto px-6 py-16 md:py-24 grid md:grid-cols-2 gap-12 items-center">
+            <div class="space-y-8">
+                <h1 class="text-4xl md:text-5xl font-bold leading-tight">
+                    Revolutionize Your <span class="text-primary relative">Carbon Footprint<span class="absolute bottom-0 left-0 w-full h-3 bg-primary/10 -z-10 rounded"></span></span> Management
+                </h1>
+                
+                <p class="text-lg text-gray-600 md:pr-12">
+                    The most comprehensive platform for tracking, managing, and offsetting your carbon emissions with blockchain-verified carbon credits.
+                </p>
+                
+                <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                    <a href="/signup" class="px-6 py-3 bg-primary text-white rounded-lg hover:bg-primary-dark transition-colors flex items-center justify-center">
+                        Get Started <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                    <a href="#demo" class="px-6 py-3 border border-primary text-primary rounded-lg hover:bg-primary hover:text-white transition-colors flex items-center justify-center">
+                        Watch Demo <i class="fas fa-play ml-2"></i>
+                    </a>
+                </div>
+                
+                <div class="grid grid-cols-3 gap-8 pt-6">
+                    <div>
+                        <div class="text-2xl font-bold text-primary-dark">10K+</div>
+                        <div class="text-sm text-gray-500">Active Users</div>
+                    </div>
+                    <div>
+                        <div class="text-2xl font-bold text-primary-dark">500+</div>
+                        <div class="text-sm text-gray-500">Projects</div>
+                    </div>
+                    <div>
+                        <div class="text-2xl font-bold text-primary-dark">1M+</div>
+                        <div class="text-sm text-gray-500">Tons CO₂ Offset</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="relative">
+                <img src="/static/images/hero-illustration.svg" alt="Carbon Registry Dashboard" class="w-full max-w-lg mx-auto rounded-xl shadow-2xl relative z-10">
+                
+                <!-- Floating Cards -->
+                <div class="absolute top-1/4 -left-8 bg-white p-4 rounded-lg shadow-lg flex items-center space-x-3 animate-bounce-slow z-20">
+                    <i class="fas fa-check-circle text-primary text-xl"></i>
+                    <span class="text-sm font-medium">Verified Carbon Credits</span>
+                </div>
+                
+                <div class="absolute bottom-1/4 left-12 bg-white p-4 rounded-lg shadow-lg flex items-center space-x-3 animate-bounce-slow animation-delay-1000 z-20">
+                    <i class="fas fa-chart-line text-primary text-xl"></i>
+                    <span class="text-sm font-medium">Real-time Tracking</span>
+                </div>
+                
+                <div class="absolute top-1/3 -right-8 bg-white p-4 rounded-lg shadow-lg flex items-center space-x-3 animate-bounce-slow animation-delay-2000 z-20">
+                    <i class="fas fa-shield-alt text-primary text-xl"></i>
+                    <span class="text-sm font-medium">Blockchain Secured</span>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Partners Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-6 text-center">
+            <p class="text-lg text-gray-600 mb-10">Trusted by leading organizations worldwide</p>
+            
+            <div class="flex flex-wrap justify-center items-center gap-12">
+                <div class="flex items-center text-gray-400 text-xl font-semibold"><i class="fab fa-google mr-2 text-2xl"></i> Google</div>
+                <div class="flex items-center text-gray-400 text-xl font-semibold"><i class="fab fa-microsoft mr-2 text-2xl"></i> Microsoft</div>
+                <div class="flex items-center text-gray-400 text-xl font-semibold"><i class="fab fa-apple mr-2 text-2xl"></i> Apple</div>
+                <div class="flex items-center text-gray-400 text-xl font-semibold"><i class="fab fa-amazon mr-2 text-2xl"></i> Amazon</div>
+                <div class="flex items-center text-gray-400 text-xl font-semibold"><i class="fab fa-spotify mr-2 text-2xl"></i> Spotify</div>
+            </div>
+        </div>
+    </section>
+    <!-- Features Section -->
+    <section id="features" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                    Powerful Features for <span class="text-primary relative">Sustainable<span class="absolute bottom-0 left-0 w-full h-3 bg-primary/10 -z-10 rounded"></span></span> Business
+                </h2>
+                <p class="text-lg text-gray-600">
+                    Our comprehensive platform provides all the tools you need to manage your carbon footprint effectively.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Feature 1 -->
+                <div class="bg-white p-8 rounded-xl shadow-md hover:shadow-xl transition-shadow">
+                    <div class="w-14 h-14 bg-gradient-to-br from-primary to-primary-dark rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-chart-pie text-white text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Carbon Analytics</h3>
+                    <p class="text-gray-600">
+                        Advanced analytics to track and visualize your carbon emissions across all business operations.
+                    </p>
+                </div>
+                
+                <!-- Feature 2 -->
+                <div class="bg-white p-8 rounded-xl shadow-md hover:shadow-xl transition-shadow">
+                    <div class="w-14 h-14 bg-gradient-to-br from-blue-500 to-blue-700 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-leaf text-white text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Offset Marketplace</h3>
+                    <p class="text-gray-600">
+                        Access to verified carbon offset projects from around the world with transparent pricing.
+                    </p>
+                </div>
+                
+                <!-- Feature 3 -->
+                <div class="bg-white p-8 rounded-xl shadow-md hover:shadow-xl transition-shadow">
+                    <div class="w-14 h-14 bg-gradient-to-br from-purple-500 to-purple-700 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-cube text-white text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Blockchain Verification</h3>
+                    <p class="text-gray-600">
+                        Immutable records of all carbon credits and transactions secured by blockchain technology.
+                    </p>
+                </div>
+                
+                <!-- Feature 4 -->
+                <div class="bg-white p-8 rounded-xl shadow-md hover:shadow-xl transition-shadow">
+                    <div class="w-14 h-14 bg-gradient-to-br from-orange-500 to-orange-700 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-file-alt text-white text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Compliance Reporting</h3>
+                    <p class="text-gray-600">
+                        Automated reports for regulatory compliance and sustainability disclosures.
+                    </p>
+                </div>
+                
+                <!-- Feature 5 -->
+                <div class="bg-white p-8 rounded-xl shadow-md hover:shadow-xl transition-shadow">
+                    <div class="w-14 h-14 bg-gradient-to-br from-teal-500 to-teal-700 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-users text-white text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Team Collaboration</h3>
+                    <p class="text-gray-600">
+                        Collaborative tools for your sustainability team to work together effectively.
+                    </p>
+                </div>
+                
+                <!-- Feature 6 -->
+                <div class="bg-white p-8 rounded-xl shadow-md hover:shadow-xl transition-shadow">
+                    <div class="w-14 h-14 bg-gradient-to-br from-red-500 to-red-700 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-bolt text-white text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Real-time Alerts</h3>
+                    <p class="text-gray-600">
+                        Get notified about important changes in your carbon footprint or market opportunities.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- How It Works Section -->
+    <section id="how-it-works" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                    How Carbon Registry <span class="text-primary relative">Works<span class="absolute bottom-0 left-0 w-full h-3 bg-primary/10 -z-10 rounded"></span></span>
+                </h2>
+                <p class="text-lg text-gray-600">
+                    Our simple yet powerful process helps you manage your carbon footprint efficiently.
+                </p>
+            </div>
+            
+            <div class="max-w-4xl mx-auto">
+                <!-- Step 1 -->
+                <div class="flex flex-col md:flex-row items-start mb-12 relative">
+                    <div class="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-primary to-primary-dark rounded-full flex items-center justify-center text-white font-bold text-lg z-10">1</div>
+                    
+                    <!-- Connecting Line -->
+                    <div class="absolute top-12 left-6 w-0.5 h-[calc(100%+3rem)] bg-primary-light hidden md:block"></div>
+                    
+                    <div class="md:ml-8 mt-4 md:mt-0">
+                        <h3 class="text-xl font-semibold mb-2">Measure Your Emissions</h3>
+                        <p class="text-gray-600">
+                            Connect your data sources or manually input your carbon emission activities.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Step 2 -->
+                <div class="flex flex-col md:flex-row items-start mb-12 relative">
+                    <div class="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-primary to-primary-dark rounded-full flex items-center justify-center text-white font-bold text-lg z-10">2</div>
+                    
+                    <!-- Connecting Line -->
+                    <div class="absolute top-12 left-6 w-0.5 h-[calc(100%+3rem)] bg-primary-light hidden md:block"></div>
+                    
+                    <div class="md:ml-8 mt-4 md:mt-0">
+                        <h3 class="text-xl font-semibold mb-2">Analyze & Optimize</h3>
+                        <p class="text-gray-600">
+                            Get insights and recommendations to reduce your carbon footprint.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Step 3 -->
+                <div class="flex flex-col md:flex-row items-start mb-12 relative">
+                    <div class="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-primary to-primary-dark rounded-full flex items-center justify-center text-white font-bold text-lg z-10">3</div>
+                    
+                    <!-- Connecting Line -->
+                    <div class="absolute top-12 left-6 w-0.5 h-[calc(100%+3rem)] bg-primary-light hidden md:block"></div>
+                    
+                    <div class="md:ml-8 mt-4 md:mt-0">
+                        <h3 class="text-xl font-semibold mb-2">Offset Remaining Emissions</h3>
+                        <p class="text-gray-600">
+                            Purchase verified carbon credits from our marketplace to offset your unavoidable emissions.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Step 4 -->
+                <div class="flex flex-col md:flex-row items-start">
+                    <div class="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-primary to-primary-dark rounded-full flex items-center justify-center text-white font-bold text-lg z-10">4</div>
+                    
+                    <div class="md:ml-8 mt-4 md:mt-0">
+                        <h3 class="text-xl font-semibold mb-2">Track & Report</h3>
+                        <p class="text-gray-600">
+                            Monitor your progress and generate reports for stakeholders and compliance.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                    What Our <span class="text-primary relative">Users<span class="absolute bottom-0 left-0 w-full h-3 bg-primary/10 -z-10 rounded"></span></span> Say
+                </h2>
+                <p class="text-lg text-gray-600">
+                    Join thousands of satisfied users who are making a difference with Carbon Registry.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="bg-white p-8 rounded-xl shadow-md">
+                    <p class="text-gray-600 italic mb-6">
+                        "Carbon Registry has transformed how we manage our sustainability initiatives. The blockchain verification gives us confidence in our carbon offset investments."
+                    </p>
+                    <div class="flex items-center">
+                        <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Sarah Johnson" class="w-12 h-12 rounded-full object-cover mr-4">
+                        <div>
+                            <h4 class="font-semibold">Sarah Johnson</h4>
+                            <p class="text-sm text-gray-500">Sustainability Director, TechCorp</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="bg-white p-8 rounded-xl shadow-md">
+                    <p class="text-gray-600 italic mb-6">
+                        "The analytics and reporting features have saved us countless hours of manual work. We can now focus on implementing emission reduction strategies."
+                    </p>
+                    <div class="flex items-center">
+                        <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Michael Chen" class="w-12 h-12 rounded-full object-cover mr-4">
+                        <div>
+                            <h4 class="font-semibold">Michael Chen</h4>
+                            <p class="text-sm text-gray-500">CEO, GreenStart</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="bg-white p-8 rounded-xl shadow-md">
+                    <p class="text-gray-600 italic mb-6">
+                        "As a small business, we needed an affordable way to track our carbon footprint. Carbon Registry provided exactly what we needed with their flexible pricing."
+                    </p>
+                    <div class="flex items-center">
+                        <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Emma Rodriguez" class="w-12 h-12 rounded-full object-cover mr-4">
+                        <div>
+                            <h4 class="font-semibold">Emma Rodriguez</h4>
+                            <p class="text-sm text-gray-500">Owner, Eco Boutique</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Pricing Section -->
+    <section id="pricing" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                    Simple, Transparent <span class="text-primary relative">Pricing<span class="absolute bottom-0 left-0 w-full h-3 bg-primary/10 -z-10 rounded"></span></span>
+                </h2>
+                <p class="text-lg text-gray-600">
+                    Choose the plan that fits your organization's needs.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                <!-- Starter Plan -->
+                <div class="bg-white rounded-xl shadow-md border border-gray-200 overflow-hidden transition-all hover:shadow-xl">
+                    <div class="p-8 border-b border-gray-200">
+                        <h3 class="text-xl font-semibold mb-4">Starter</h3>
+                        <div class="flex items-baseline">
+                            <span class="text-gray-600 text-2xl">$</span>
+                            <span class="text-4xl font-bold text-primary-dark">49</span>
+                            <span class="text-gray-600 ml-1">/month</span>
+                        </div>
+                    </div>
+                    
+                    <div class="p-8">
+                        <ul class="space-y-4">
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-primary mr-3"></i>
+                                <span>Basic carbon footprint tracking</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-primary mr-3"></i>
+                                <span>Monthly reports</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-primary mr-3"></i>
+                                <span>Access to marketplace</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-primary mr-3"></i>
+                                <span>Email support</span>
+                            </li>
+                            <li class="flex items-center text-gray-400">
+                                <i class="fas fa-times mr-3"></i>
+                                <span>Team collaboration</span>
+                            </li>
+                            <li class="flex items-center text-gray-400">
+                                <i class="fas fa-times mr-3"></i>
+                                <span>API access</span>
+                            </li>
+                        </ul>
+                        
+                        <div class="mt-8">
+                            <a href="/signup?plan=starter" class="block w-full py-3 px-6 text-center border border-primary text-primary rounded-lg hover:bg-primary hover:text-white transition-colors">
+                                Get Started
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Business Plan -->
+                <div class="bg-white rounded-xl shadow-lg border-2 border-primary overflow-hidden transform scale-105 z-10 relative">
+                    <div class="absolute top-0 right-0 bg-primary text-white px-4 py-1 rounded-bl-lg text-sm font-medium">
+                        Most Popular
+                    </div>
+                    
+                    <div class="p-8 border-b border-gray-200">
+                        <h3 class="text-xl font-semibold mb-4">Business</h3>
+                        <div class="flex items-baseline">
+                            <span class="text-gray-600 text-2xl">$</span>
+                            <span class="text-4xl font-bold text-primary-dark">149</span>
+                            <span class="text-gray-600 ml-1">/month</span>
+                        </div>
+                    </div>
+                    
+                    <div class="p-8">
+                        <ul class="space-y-4">
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-primary mr-3"></i>
+                                <span>Advanced carbon analytics</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-primary mr-3"></i>
+                                <span>Weekly reports</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-primary mr-3"></i>
+                                <span>Priority marketplace access</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-primary mr-3"></i>
+                                <span>Priority support</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-primary mr-3"></i>
+                                <span>Team collaboration (up to 10)</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-primary mr-3"></i>
+                                <span>Basic API access</span>
+                            </li>
+                        </ul>
+                        
+                        <div class="mt-8">
+                            <a href="/signup?plan=business" class="block w-full py-3 px-6 text-center bg-primary text-white rounded-lg hover:bg-primary-dark transition-colors">
+                                Get Started
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Enterprise Plan -->
+                <div class="bg-white rounded-xl shadow-md border border-gray-200 overflow-hidden transition-all hover:shadow-xl">
+                    <div class="p-8 border-b border-gray-200">
+                        <h3 class="text-xl font-semibold mb-4">Enterprise</h3>
+                        <div class="flex items-baseline justify-center">
+                            <span class="text-2xl font-semibold text-primary-dark">Custom</span>
+                        </div>
+                    </div>
+                    
+                    <div class="p-8">
+                        <ul class="space-y-4">
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-primary mr-3"></i>
+                                <span>Full-suite carbon management</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-primary mr-3"></i>
+                                <span>Real-time reporting</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-primary mr-3"></i>
+                                <span>Custom marketplace integration</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-primary mr-3"></i>
+                                <span>Dedicated account manager</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-primary mr-3"></i>
+                                <span>Unlimited team members</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-primary mr-3"></i>
+                                <span>Full API access</span>
+                            </li>
+                        </ul>
+                        
+                        <div class="mt-8">
+                            <a href="/contact" class="block w-full py-3 px-6 text-center border border-primary text-primary rounded-lg hover:bg-primary hover:text-white transition-colors">
+                                Contact Sales
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- CTA Section -->
+    <section class="py-20 bg-gradient-to-br from-primary to-primary-dark text-white">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                Ready to Reduce Your <span class="relative">Carbon Footprint?<span class="absolute bottom-0 left-0 w-full h-3 bg-white/20 -z-10 rounded"></span></span>
+            </h2>
+            <p class="text-xl opacity-90 max-w-2xl mx-auto mb-8">
+                Join thousands of organizations making a positive impact on the environment.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="/signup" class="px-8 py-4 bg-white text-primary-dark rounded-lg hover:bg-gray-100 transition-colors font-medium">
+                    Get Started Now
+                </a>
+                <a href="/contact" class="px-8 py-4 border border-white text-white rounded-lg hover:bg-white/10 transition-colors font-medium">
+                    Talk to Sales
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white pt-16 pb-8">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-2 md:grid-cols-6 gap-8 mb-16">
+                <!-- Brand -->
+                <div class="col-span-2">
+                    <div class="flex items-center space-x-2 mb-6">
+                        <i class="fas fa-leaf text-primary text-2xl"></i>
+                        <span class="text-xl font-bold">Carbon Registry</span>
+                    </div>
+                    <p class="text-gray-400 mb-6">
+                        Making carbon management accessible, transparent, and effective.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition-colors">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition-colors">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition-colors">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition-colors">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Links -->
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Product</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Features</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Pricing</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Case Studies</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Reviews</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Updates</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Company</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">About Us</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Careers</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Blog</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Press</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Resources</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Documentation</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Help Center</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">API</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Community</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Partners</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Legal</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Privacy Policy</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Terms of Service</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Cookie Policy</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">GDPR</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-500 text-sm">© 2025 Carbon Registry. All rights reserved.</p>
+                <div class="flex space-x-6 mt-4 md:mt-0">
+                    <a href="#" class="text-gray-500 hover:text-white text-sm">Privacy Policy</a>
+                    <a href="#" class="text-gray-500 hover:text-white text-sm">Terms of Service</a>
+                    <a href="#" class="text-gray-500 hover:text-white text-sm">Sitemap</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // Simple scroll animation for the navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Add animation classes for Tailwind
+        tailwind.config = {
+            theme: {
+                extend: {
+                    animation: {
+                        'bounce-slow': 'bounce 3s infinite',
+                    },
+                    keyframes: {
+                        bounce: {
+                            '0%, 100%': {
+                                transform: 'translateY(-5%)',
+                                animationTimingFunction: 'cubic-bezier(0.8, 0, 1, 1)'
+                            },
+                            '50%': {
+                                transform: 'translateY(0)',
+                                animationTimingFunction: 'cubic-bezier(0, 0, 0.2, 1)'
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+</html>
