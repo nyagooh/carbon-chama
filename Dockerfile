@@ -21,8 +21,8 @@ COPY frontend/ /app/frontend/
 RUN mkdir -p /app/data
 
 # Expose the port the app runs on
-EXPOSE 1939
-ENV PORT=1939
+EXPOSE 8080
+ENV PORT=8080
 
 # Command to run the application
-CMD ["/app/carbon-registry"]
+CMD ["./app/carbon-registry"]
