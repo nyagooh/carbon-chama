@@ -17,15 +17,12 @@ class SignupForm extends HTMLElement {
                       <div class="right-section">
                           <h2>Create an account</h2>
                           <p>Already have an account? <a href="/login">Log in</a></p>
-                          <form>
-                              <div class="name-fields">
-                                  <input type="text" placeholder="First Name">
-                                  <input type="text" placeholder="Last Name">
-                              </div>
-                              <input type="email" placeholder="Email">
-                              <input type="password" placeholder="Enter your password">
+                          <form id="signup-form" action="/auth/signup" method="post">
+                              <input type="text" name="username" placeholder="Username" required>
+                              <input type="email" name="email" placeholder="Email" required>
+                              <input type="password" name="password" placeholder="Enter your password" required>
                               <div class="terms">
-                                  <input type="checkbox" id="terms">
+                                  <input type="checkbox" id="terms" required>
                                   <label for="terms">I agree to the <a href="#">Terms & Conditions</a></label>
                               </div>
                               <button type="submit">Create Account</button>
@@ -48,7 +45,13 @@ class SignupForm extends HTMLElement {
     this.shadowRoot
       .querySelector("#google-signup-btn")
       .addEventListener("click", () => {
-        window.location.href("/auth/google");
+        window.location.href = "/auth/google";
+      });
+      
+    // Add event listener for form submission
+    this.shadowRoot.querySelector("#signup-form")
+      .addEventListener("submit", (e) => {
+        // Form will submit normally to the action URL
       });
   }
 }

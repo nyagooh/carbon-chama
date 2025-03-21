@@ -25,8 +25,8 @@ func main() {
 	r := r.Router()
 	port := os.Getenv("PORT")
 	if port == "" {
-		port = "1919"
+		port = "8080"
 	}
-	log.Println("Server running on http://localhost" + port)
+	log.Println("Server running on http://localhost:" + port)
 	log.Fatal(http.ListenAndServe(":"+port, r))
 }

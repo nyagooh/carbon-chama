@@ -2,7 +2,6 @@ package auth
 
 import (
 	"encoding/json"
-	"fmt"
 	"net/http"
 
 	"github.com/gorilla/sessions"
@@ -88,20 +87,16 @@ func HandleGoogleCallback(w http.ResponseWriter, r *http.Request) {
 
 func HandleDashboard(w http.ResponseWriter, r *http.Request) {
 	session, _ := store.Get(r, "sessionname")
-	email, emailExists := session.Values["Email"].(string)
-	name, nameExists := session.Values["Name"].(string)
+	_, emailExists := session.Values["Email"].(string)
+	_, nameExists := session.Values["Name"].(string)
 
 	if !emailExists || !nameExists {
 		http.Redirect(w, r, "/login", http.StatusFound)
 		return
 	}
 
-	// Render the dashboard HTML template
-	fmt.Fprintf(w, "<html><head><title>Dashboard</title></head><body>")
-	fmt.Fprintf(w, "<h1>Welcome, %s!</h1>", name)
-	fmt.Fprintf(w, "<p>Your email is %s</p>", email)
-	fmt.Fprintf(w, "<a href=\"/logout\">Logout</a>")
-	fmt.Fprintf(w, "</body></html>")
+	// Serve the dashboard HTML file from the templates directory
+	http.ServeFile(w, r, "./frontend/templates/dashboard.html")
 }
 
 // implement logout

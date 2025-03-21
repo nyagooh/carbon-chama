@@ -17,8 +17,9 @@ class LoginForm extends HTMLElement {
          <div class="right-section">
                         <h2>Welcome Back</h2>
                         <p>Please Enter your Account details</p>
-                            <input type="email" placeholder="Email">
-                            <input type="password" placeholder="Enter your password">
+                        <form id="login-form" action="/auth/login" method="post">
+                            <input type="email" name="email" placeholder="Email" required>
+                            <input type="password" name="password" placeholder="Enter your password" required>
                            <div class="terms">
                                 <a href="#">Forgot Password?</a>
                             </div>
@@ -46,6 +47,12 @@ class LoginForm extends HTMLElement {
     this.shadowRoot.querySelector("#login-btn")
       .addEventListener("click", () => {
         window.location.href = "/auth/google";
+      });
+      
+    // Add event listener for form submission
+    this.shadowRoot.querySelector("#login-form")
+      .addEventListener("submit", (e) => {
+        // Form will submit normally to the action URL
       });
   }
 }

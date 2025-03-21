@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carbon Registry Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1a237e',
+                        secondary: '#00796b',
+                        dark: '#121212',
+                        light: '#f5f5f5'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-100 dark:bg-gray-900 text-gray-800 dark:text-white">
+    <div class="min-h-screen flex flex-col">
+        <!-- Navbar -->
+        <nav class="bg-white dark:bg-gray-800 shadow-md">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between h-16">
+                    <div class="flex items-center">
+                        <div class="flex-shrink-0 flex items-center">
+                            <i class="fas fa-leaf text-green-600 text-xl mr-2"></i>
+                            <span class="font-bold text-xl">Carbon Registry</span>
+                        </div>
+                    </div>
+                    <div class="flex items-center">
+                        <div class="ml-3 relative flex items-center space-x-4">
+                            <div class="flex flex-col items-end">
+                                <span class="font-medium">{{ .Username }}</span>
+                                <span class="text-sm text-gray-500 dark:text-gray-400">{{ .Email }}</span>
+                            </div>
+                            <div class="h-10 w-10 rounded-full bg-primary flex items-center justify-center text-white font-bold">
+                                {{ if .Username }}{{ slice .Username 0 1 | toUpper }}{{ else }}U{{ end }}
+                            </div>
+                            <a href="/logout" class="px-3 py-2 rounded-md text-sm font-medium bg-red-600 text-white hover:bg-red-700">
+                                Logout
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <main class="flex-grow container mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            <!-- Header Section -->
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-6">
+                <h1 class="text-2xl font-bold">Dashboard</h1>
+                <button class="mt-4 md:mt-0 px-4 py-2 bg-primary text-white rounded-md hover:bg-opacity-90 flex items-center">
+                    <i class="fas fa-plus mr-2"></i> Create Carbon Chama
+                </button>
+            </div>
+
+            <!-- Stats Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-users text-primary mr-3 text-xl"></i>
+                        <h2 class="text-gray-500 dark:text-gray-400">Total Chamas</h2>
+                    </div>
+                    <p class="text-3xl font-bold">3</p>
+                </div>
+
+                <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-chart-line text-primary mr-3 text-xl"></i>
+                        <h2 class="text-gray-500 dark:text-gray-400">Carbon Credits</h2>
+                    </div>
+                    <p class="text-3xl font-bold">12,500</p>
+                </div>
+
+                <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-money-bill-wave text-primary mr-3 text-xl"></i>
+                        <h2 class="text-gray-500 dark:text-gray-400">Total Value</h2>
+                    </div>
+                    <p class="text-3xl font-bold">$45,750</p>
+                </div>
+            </div>
+
+            <!-- Carbon Chamas Section -->
+            <h2 class="text-xl font-bold mb-4">My Carbon Chamas</h2>
+
+            <!-- Chamas List -->
+            <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden">
+                <ul class="divide-y divide-gray-200 dark:divide-gray-700">
+                    <!-- Chama 1 -->
+                    <li class="hover:bg-gray-50 dark:hover:bg-gray-700 cursor-pointer">
+                        <div class="flex items-center flex-col sm:flex-row p-4 sm:p-6">
+                            <div class="flex items-center mb-4 sm:mb-0">
+                                <div class="h-12 w-12 rounded-full bg-green-600 flex items-center justify-center text-white font-bold mr-4">
+                                    FS
+                                </div>
+                                <div>
+                                    <h3 class="text-lg font-medium">Forest Savers Chama</h3>
+                                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800 dark:bg-green-800 dark:text-green-100 mt-1">
+                                        Reforestation
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="flex flex-wrap items-center justify-between sm:ml-auto space-x-4">
+                                <div class="flex items-center">
+                                    <i class="fas fa-users text-gray-500 mr-2"></i>
+                                    <span>24 Members</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <i class="fas fa-calendar text-gray-500 mr-2"></i>
+                                    <span>Next Meeting: 2025-04-05</span>
+                                </div>
+                                <i class="fas fa-chevron-right text-gray-400 hidden sm:block"></i>
+                            </div>
+                        </div>
+                    </li>
+
+                    <!-- Chama 2 -->
+                    <li class="hover:bg-gray-50 dark:hover:bg-gray-700 cursor-pointer">
+                        <div class="flex items-center flex-col sm:flex-row p-4 sm:p-6">
+                            <div class="flex items-center mb-4 sm:mb-0">
+                                <div class="h-12 w-12 rounded-full bg-blue-600 flex items-center justify-center text-white font-bold mr-4">
+                                    OC
+                                </div>
+                                <div>
+                                    <h3 class="text-lg font-medium">Ocean Cleaners</h3>
+                                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800 dark:bg-blue-800 dark:text-blue-100 mt-1">
+                                        Ocean Conservation
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="flex flex-wrap items-center justify-between sm:ml-auto space-x-4">
+                                <div class="flex items-center">
+                                    <i class="fas fa-users text-gray-500 mr-2"></i>
+                                    <span>18 Members</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <i class="fas fa-calendar text-gray-500 mr-2"></i>
+                                    <span>Next Meeting: 2025-03-28</span>
+                                </div>
+                                <i class="fas fa-chevron-right text-gray-400 hidden sm:block"></i>
+                            </div>
+                        </div>
+                    </li>
+
+                    <!-- Chama 3 -->
+                    <li class="hover:bg-gray-50 dark:hover:bg-gray-700 cursor-pointer">
+                        <div class="flex items-center flex-col sm:flex-row p-4 sm:p-6">
+                            <div class="flex items-center mb-4 sm:mb-0">
+                                <div class="h-12 w-12 rounded-full bg-amber-600 flex items-center justify-center text-white font-bold mr-4">
+                                    SE
+                                </div>
+                                <div>
+                                    <h3 class="text-lg font-medium">Solar Energy Cooperative</h3>
+                                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-amber-100 text-amber-800 dark:bg-amber-800 dark:text-amber-100 mt-1">
+                                        Renewable Energy
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="flex flex-wrap items-center justify-between sm:ml-auto space-x-4">
+                                <div class="flex items-center">
+                                    <i class="fas fa-users text-gray-500 mr-2"></i>
+                                    <span>32 Members</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <i class="fas fa-calendar text-gray-500 mr-2"></i>
+                                    <span>Next Meeting: 2025-04-12</span>
+                                </div>
+                                <i class="fas fa-chevron-right text-gray-400 hidden sm:block"></i>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="bg-white dark:bg-gray-800 py-4 mt-8">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <p class="text-center text-gray-500 dark:text-gray-400 text-sm">
+                    © 2025 Carbon Registry. All rights reserved.
+                </p>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Sample data for carbon chamas
+            const carbonChamas = [
+                {
+                    id: 1,
+                    name: 'Forest Savers Chama',
+                    type: 'Reforestation',
+                    members: 24,
+                    nextMeeting: '2025-04-05',
+                    credits: 5250,
+                    value: 18375
+                },
+                {
+                    id: 2,
+                    name: 'Ocean Cleaners',
+                    type: 'Ocean Conservation',
+                    members: 18,
+                    nextMeeting: '2025-03-28',
+                    credits: 3200,
+                    value: 11200
+                },
+                {
+                    id: 3,
+                    name: 'Solar Energy Cooperative',
+                    type: 'Renewable Energy',
+                    members: 32,
+                    nextMeeting: '2025-04-12',
+                    credits: 4050,
+                    value: 16175
+                }
+            ];
+
+            // Click handlers for chama items
+            document.querySelectorAll('li').forEach((item, index) => {
+                item.addEventListener('click', function() {
+                    // In a real app, this would navigate to the chama details page
+                    console.log(`Navigating to chama ${carbonChamas[index].id}`);
+                    alert(`Viewing details for ${carbonChamas[index].name}`);
+                });
+            });
+
+            // Create chama button handler
+            document.querySelector('button').addEventListener('click', function() {
+                // In a real app, this would navigate to the create chama page
+                alert('Create a new Carbon Chama');
+            });
+        });
+    </script>
+</body>
+</html>
