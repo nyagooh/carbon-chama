@@ -9,7 +9,7 @@ import (
 
 func ServePage(w http.ResponseWriter, r *http.Request) {
 	if r.Method != http.MethodGet {
-		http.Error(w, "methhod not allowed", http.StatusMethodNotAllowed)
+		http.Error(w, "method not allowed", http.StatusMethodNotAllowed)
 		return
 	}
 	var page string
@@ -19,7 +19,7 @@ func ServePage(w http.ResponseWriter, r *http.Request) {
 	case "/login":
 		page = "login.html"
 	case "/":
-		page = "login.html"
+		page = "landing-tailwind.html"
 	case "/dashboard2":
 		page = "dashboard.html"
 	case "/chama":
