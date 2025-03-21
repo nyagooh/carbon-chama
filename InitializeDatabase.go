@@ -7,7 +7,7 @@ import (
 	_ "github.com/mattn/go-sqlite3"
 )
 
-func InitializeDB()(*sql.DB, error){
+func InitializeDB2()(*sql.DB, error){
 	db, err := sql.Open("sqlite3", "./forum.db")
 	if err != nil{
 		return nil, err
