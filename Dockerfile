@@ -25,4 +25,4 @@ EXPOSE 1939
 ENV PORT=1939
 
 # Command to run the application
-CMD ["./carbon-registry"]
+CMD ["/app/carbon-registry"]
